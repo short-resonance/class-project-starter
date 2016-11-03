@@ -3,20 +3,21 @@
   <head>
     <title>{{ title }}</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'
   </head>
 
 	<body class="container">
 
     {% block header %}
-      <header>Hey, I'm in the header</header>
+      <header> <img src="https://lh3.googleusercontent.com/3VZ_LFHJ0mtIH4HlvbERlg5y6h3o9pGWQomCboE5CYhgqsAj86Bot66csCeaEeGDmnZq-oPv0Jypp7c=w3200-h1475" id="logo" style = "width:100px"><br>Save the Date</header>
     {% endblock %}
 
     {% block mainContent %}
-      <section>Welcome to {{ title }}. {{tagline}}</section>
+      <section>Welcome to Save the Date. Our tagline will go here.</section>
     {% endblock %}
 
     {% block footer %}
-      <footer>This be the footer.</footer>
+      <footer><a href="/index">Home</a> > <a href="/about">About</a> > <a href="/events">Events</a></footer>
     {% endblock %}
 
   </body>
