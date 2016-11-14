@@ -2,19 +2,29 @@
 
 {% block mainContent %}
 
-  <div>
-    <p></p>Check out the <a href="/about">About us</a> page as well as the <a href="/events/0">Events</a> page.
+  
+    <p> 
+    Welcome to Save the Date. Live your life with no mo' FOMO. 
+    </p>
+    Check out the <a href="/about">About us</a> page as well as the <a href="/events/0">Events</a> page.
   </p>
-  <p>Our upcoming events include:
-    <ul>
+  <p>Our upcoming events include:</p>
+  <div style="border: 1px solid black">
+    {% include "fragments/events-list.html" %}
+      <ul>
       <li class="event" id="event-1"><a href="/events/1">Voices</a></li>
       <li class="event" id="event-2"><a href="/events/2">StorySlam</a></li>
       <li class="event" id="event-3"><a href="/events/3">VoiceSlam</a></li>
     </ul>
-  </p>
-  <p><a id="new" href="/events/new">Create a new event</a></p>
+    </div>
   
-  </div>
+  <p>
+    Check out the <a href="/about">About Us</a> page 
+    as well as the <a href="/events">Events</a> page.
+    </p>
+<p>
+   <a id="new" href="/events/new">Create a new event</a>
+</p>  
 
 {% endblock %}
   
