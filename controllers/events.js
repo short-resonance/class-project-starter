@@ -103,11 +103,13 @@ function rsvp (request, response){
 }
 function api (request, response){
   var output = {events:[]};
-  var search = request.quesry.search;
+  var search = request.query.search;
   if(search){
     for(var i = 0; i < events.all.length; i++){
-    output.events.push(events.all[i]);
+      if(events.all[i].title.indexOf(search) !==-1){
+       output.events.push(events.all[i]);
     }
+}
   }else{
     output.events = events.all;   
   }
