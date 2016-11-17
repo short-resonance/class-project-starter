@@ -49,18 +49,20 @@ function newEvent(request, response){
   response.render('create-event.html', contextData);
 }
 
-function checkIntRange (request, fieldName, minVal, maxVal, contextData){
-var value = null; 
-
-if (validator.isInt(request.body.[fieldName] === false) {
+function checkIntRange(request, fieldName, minVal, maxVal, contextData){
+  var value = null; 
+  if (validator.isInt(request.body[fieldName] === false) {
     contextData.errors.push('Your ' + fieldName + ' should be an integer.');
-}else{
-value = parseInt(request.body[fieldName], 10);
-if (value > maxVal || value < minVal){
-    contextData.errors.push('Your ' + fieldName + ' should be in the range ' + minVal + ' to ' + maxVal + '.');
+  }else{
+    value = parseInt(request.body[fieldName], 10);
+    if (value > maxVal || value < minVal) {
+      contextData.errors.push('Your ' + fieldName + ' should be in the range ' + minVal + ' to ' + maxVal);
+    }
   }
-  
-/**
+  return value;
+}
+
+  /**
  * Controller to which new events are submitted.
  * Validates the form and adds the new event to
  * our global list of events.
