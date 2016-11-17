@@ -7,7 +7,7 @@ var events = require('../models/events');
  * Controller that renders our index (home) page.
  */
 function index (request, response) {
-var now = new Date(2016, 10, 1);
+var now = new Date();
 var contextData = {
    'events': events.all,
    'title': 'Save the Date',
