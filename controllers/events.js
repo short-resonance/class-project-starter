@@ -50,8 +50,9 @@ function newEvent(request, response){
 }
 
 function checkIntRange(request, fieldName, minVal, maxVal, contextData){
+  
   var value = null; 
-  if (validator.isInt(request.body[fieldName] === false) {
+  if (validator.isInt(request.body[fieldName]) === false) {
     contextData.errors.push('Your ' + fieldName + ' should be an integer.');
   }else{
     value = parseInt(request.body[fieldName], 10);
@@ -61,7 +62,6 @@ function checkIntRange(request, fieldName, minVal, maxVal, contextData){
   }
   return value;
 }
-
   /**
  * Controller to which new events are submitted.
  * Validates the form and adds the new event to
@@ -79,7 +79,6 @@ var month = checkIntRange(request, 'month', 0, 11, contextData);
 var day = checkIntRange(request, 'day', 1, 31, contextData);
 var hour = checkIntRange(requst, 'hour', 0, 23, contextData);
 
-  
   if (contextData.errors.length === 0) {
     var newEvent = {
       title: request.body.title,
