@@ -1,0 +1,997 @@
+   
+   The site, on all pages
+     ✓ should be using Bootstrap CSS
+     ✓ should have a header element
+     ✓ should have a footer element
+     1) should have a link to /about in the footer
+     2) should have a link to / in the footer
+   
+   The home page
+     ✓ should be up and running
+     ✓ should have your team logo
+     ✓ should have a list of events
+     ✓ should have a time tag for each event
+     ✓ should have a link for each event
+     3) should not show events that are over
+     ✓ should have a link to create a new event
+   
+   The API
+     ✓ should return an array of upcoming events in JSON format
+     ✓ should allow for searching events by title
+   
+   The about page
+     ✓ should have people on it
+     ✓ should have a picture of each person
+   
+   The event detail pages
+     4) should exist for each event and should have title, image, etc
+     5) should allow Yale users to RSVP
+     6) should reject RSVPs from non-Yale addresses
+   
+   The new event creation page
+     ✓ should exist
+     ✓ should have a form that can be posted back
+     7) should have appropriate form fields and labels
+     8) should use select inputs for year, month, day, hour and minute form elements.
+     9) should have the appropriate options for select elements
+   
+   The form for creating new events
+     10) should display errors to the user when the year is not an integer
+     11) should display errors to the user when the year is more than 2016
+     12) should display errors to the user when the year is less than 2015
+     13) should display errors to the user when the month is not an integer
+     14) should display errors to the user when the month is more than 11
+     15) should display errors to the user when the month is less than 0
+     16) should display errors to the user when the day is not an integer
+     17) should display errors to the user when the day is more than 31
+     18) should display errors to the user when the day is less than 1
+     19) should display errors to the user when the hour is not an integer
+     20) should display errors to the user when the hour is more than 23
+     21) should display errors to the user when the hour is less than 0
+     22) should display errors to the user when the image is not a gif or png
+     23) should display errors to the user when the image is not a URL
+     24) should display errors to the user when the location is too long
+     25) should display errors to the user when the location is empty
+     26) should display errors to the user when the title is too long
+     27) should display errors to the user when the title is empty
+     28) should redirect the user to the event detail page if the form is valid
+
+   Executed 43 tests in 7 suites in 1s 473ms
+       15 passes
+       28 failed
+   
+   28) The form for creating new events should redirect the user to the event detail page if the form is valid
+   
+       Expected error code 302, but got 500
+       
+       + expected - actual
+       
+       -false
+       +true
+       
+       at Request._callback (test/test.js:501:14)
+       
+       500 |       assert.ok(err === null, 'Error: ' + err);
+       501 |       assert.ok(httpResponse.statusCode === 302, 'Expected error code 302, but got ' + httpResponse.statusCode);
+       502 |       assert.ok(httpResponse.headers.hasOwnProperty('location'), 'http response header should include location.');
+       
+       at Request.self.callback (node_modules/request/request.js:186:22)
+       
+       185 |       self._callbackCalled = true
+       186 |       self._callback.apply(self, arguments)
+       187 |     }
+       
+       at Request.<anonymous> (node_modules/request/request.js:1060:10)
+       
+       1059 |     }
+       1060 |     self.emit('complete', response, response.body)
+       1061 |   })
+       
+       at IncomingMessage.<anonymous> (node_modules/request/request.js:980:12)
+       
+       979 |     responseContent.once('end', function (chunk) {
+       980 |       self.emit('end', chunk)
+       981 |     })
+       
+       at endReadableNT (_stream_readable.js:921:12)
+   
+   27) The form for creating new events should display errors to the user when the title is empty
+   
+       Expected status code 200, but got500
+       
+       + expected - actual
+       
+       -false
+       +true
+       
+       at Request._callback (test/test.js:478:16)
+       
+       477 |         assert.ok(err === null, 'Error: ' + err);
+       478 |         assert.ok(httpResponse.statusCode === 200, 'Expected status code 200, but got' + httpResponse.statusCode);
+       479 |         var window = jsdom.jsdom(body).defaultView;
+       
+       at Request.self.callback (node_modules/request/request.js:186:22)
+       
+       185 |       self._callbackCalled = true
+       186 |       self._callback.apply(self, arguments)
+       187 |     }
+       
+       at Request.<anonymous> (node_modules/request/request.js:1060:10)
+       
+       1059 |     }
+       1060 |     self.emit('complete', response, response.body)
+       1061 |   })
+       
+       at IncomingMessage.<anonymous> (node_modules/request/request.js:980:12)
+       
+       979 |     responseContent.once('end', function (chunk) {
+       980 |       self.emit('end', chunk)
+       981 |     })
+       
+       at endReadableNT (_stream_readable.js:921:12)
+   
+   26) The form for creating new events should display errors to the user when the title is too long
+   
+       Expected status code 200, but got500
+       
+       + expected - actual
+       
+       -false
+       +true
+       
+       at Request._callback (test/test.js:478:16)
+       
+       477 |         assert.ok(err === null, 'Error: ' + err);
+       478 |         assert.ok(httpResponse.statusCode === 200, 'Expected status code 200, but got' + httpResponse.statusCode);
+       479 |         var window = jsdom.jsdom(body).defaultView;
+       
+       at Request.self.callback (node_modules/request/request.js:186:22)
+       
+       185 |       self._callbackCalled = true
+       186 |       self._callback.apply(self, arguments)
+       187 |     }
+       
+       at Request.<anonymous> (node_modules/request/request.js:1060:10)
+       
+       1059 |     }
+       1060 |     self.emit('complete', response, response.body)
+       1061 |   })
+       
+       at IncomingMessage.<anonymous> (node_modules/request/request.js:980:12)
+       
+       979 |     responseContent.once('end', function (chunk) {
+       980 |       self.emit('end', chunk)
+       981 |     })
+       
+       at endReadableNT (_stream_readable.js:921:12)
+   
+   25) The form for creating new events should display errors to the user when the location is empty
+   
+       Expected status code 200, but got500
+       
+       + expected - actual
+       
+       -false
+       +true
+       
+       at Request._callback (test/test.js:478:16)
+       
+       477 |         assert.ok(err === null, 'Error: ' + err);
+       478 |         assert.ok(httpResponse.statusCode === 200, 'Expected status code 200, but got' + httpResponse.statusCode);
+       479 |         var window = jsdom.jsdom(body).defaultView;
+       
+       at Request.self.callback (node_modules/request/request.js:186:22)
+       
+       185 |       self._callbackCalled = true
+       186 |       self._callback.apply(self, arguments)
+       187 |     }
+       
+       at Request.<anonymous> (node_modules/request/request.js:1060:10)
+       
+       1059 |     }
+       1060 |     self.emit('complete', response, response.body)
+       1061 |   })
+       
+       at IncomingMessage.<anonymous> (node_modules/request/request.js:980:12)
+       
+       979 |     responseContent.once('end', function (chunk) {
+       980 |       self.emit('end', chunk)
+       981 |     })
+       
+       at endReadableNT (_stream_readable.js:921:12)
+   
+   24) The form for creating new events should display errors to the user when the location is too long
+   
+       Expected status code 200, but got500
+       
+       + expected - actual
+       
+       -false
+       +true
+       
+       at Request._callback (test/test.js:478:16)
+       
+       477 |         assert.ok(err === null, 'Error: ' + err);
+       478 |         assert.ok(httpResponse.statusCode === 200, 'Expected status code 200, but got' + httpResponse.statusCode);
+       479 |         var window = jsdom.jsdom(body).defaultView;
+       
+       at Request.self.callback (node_modules/request/request.js:186:22)
+       
+       185 |       self._callbackCalled = true
+       186 |       self._callback.apply(self, arguments)
+       187 |     }
+       
+       at Request.<anonymous> (node_modules/request/request.js:1060:10)
+       
+       1059 |     }
+       1060 |     self.emit('complete', response, response.body)
+       1061 |   })
+       
+       at IncomingMessage.<anonymous> (node_modules/request/request.js:980:12)
+       
+       979 |     responseContent.once('end', function (chunk) {
+       980 |       self.emit('end', chunk)
+       981 |     })
+       
+       at endReadableNT (_stream_readable.js:921:12)
+   
+   23) The form for creating new events should display errors to the user when the image is not a URL
+   
+       Expected status code 200, but got500
+       
+       + expected - actual
+       
+       -false
+       +true
+       
+       at Request._callback (test/test.js:478:16)
+       
+       477 |         assert.ok(err === null, 'Error: ' + err);
+       478 |         assert.ok(httpResponse.statusCode === 200, 'Expected status code 200, but got' + httpResponse.statusCode);
+       479 |         var window = jsdom.jsdom(body).defaultView;
+       
+       at Request.self.callback (node_modules/request/request.js:186:22)
+       
+       185 |       self._callbackCalled = true
+       186 |       self._callback.apply(self, arguments)
+       187 |     }
+       
+       at Request.<anonymous> (node_modules/request/request.js:1060:10)
+       
+       1059 |     }
+       1060 |     self.emit('complete', response, response.body)
+       1061 |   })
+       
+       at IncomingMessage.<anonymous> (node_modules/request/request.js:980:12)
+       
+       979 |     responseContent.once('end', function (chunk) {
+       980 |       self.emit('end', chunk)
+       981 |     })
+       
+       at endReadableNT (_stream_readable.js:921:12)
+   
+   22) The form for creating new events should display errors to the user when the image is not a gif or png
+   
+       Expected status code 200, but got500
+       
+       + expected - actual
+       
+       -false
+       +true
+       
+       at Request._callback (test/test.js:478:16)
+       
+       477 |         assert.ok(err === null, 'Error: ' + err);
+       478 |         assert.ok(httpResponse.statusCode === 200, 'Expected status code 200, but got' + httpResponse.statusCode);
+       479 |         var window = jsdom.jsdom(body).defaultView;
+       
+       at Request.self.callback (node_modules/request/request.js:186:22)
+       
+       185 |       self._callbackCalled = true
+       186 |       self._callback.apply(self, arguments)
+       187 |     }
+       
+       at Request.<anonymous> (node_modules/request/request.js:1060:10)
+       
+       1059 |     }
+       1060 |     self.emit('complete', response, response.body)
+       1061 |   })
+       
+       at IncomingMessage.<anonymous> (node_modules/request/request.js:980:12)
+       
+       979 |     responseContent.once('end', function (chunk) {
+       980 |       self.emit('end', chunk)
+       981 |     })
+       
+       at endReadableNT (_stream_readable.js:921:12)
+   
+   21) The form for creating new events should display errors to the user when the hour is less than 0
+   
+       Expected status code 200, but got500
+       
+       + expected - actual
+       
+       -false
+       +true
+       
+       at Request._callback (test/test.js:478:16)
+       
+       477 |         assert.ok(err === null, 'Error: ' + err);
+       478 |         assert.ok(httpResponse.statusCode === 200, 'Expected status code 200, but got' + httpResponse.statusCode);
+       479 |         var window = jsdom.jsdom(body).defaultView;
+       
+       at Request.self.callback (node_modules/request/request.js:186:22)
+       
+       185 |       self._callbackCalled = true
+       186 |       self._callback.apply(self, arguments)
+       187 |     }
+       
+       at Request.<anonymous> (node_modules/request/request.js:1060:10)
+       
+       1059 |     }
+       1060 |     self.emit('complete', response, response.body)
+       1061 |   })
+       
+       at IncomingMessage.<anonymous> (node_modules/request/request.js:980:12)
+       
+       979 |     responseContent.once('end', function (chunk) {
+       980 |       self.emit('end', chunk)
+       981 |     })
+       
+       at endReadableNT (_stream_readable.js:921:12)
+   
+   20) The form for creating new events should display errors to the user when the hour is more than 23
+   
+       Expected status code 200, but got500
+       
+       + expected - actual
+       
+       -false
+       +true
+       
+       at Request._callback (test/test.js:478:16)
+       
+       477 |         assert.ok(err === null, 'Error: ' + err);
+       478 |         assert.ok(httpResponse.statusCode === 200, 'Expected status code 200, but got' + httpResponse.statusCode);
+       479 |         var window = jsdom.jsdom(body).defaultView;
+       
+       at Request.self.callback (node_modules/request/request.js:186:22)
+       
+       185 |       self._callbackCalled = true
+       186 |       self._callback.apply(self, arguments)
+       187 |     }
+       
+       at Request.<anonymous> (node_modules/request/request.js:1060:10)
+       
+       1059 |     }
+       1060 |     self.emit('complete', response, response.body)
+       1061 |   })
+       
+       at IncomingMessage.<anonymous> (node_modules/request/request.js:980:12)
+       
+       979 |     responseContent.once('end', function (chunk) {
+       980 |       self.emit('end', chunk)
+       981 |     })
+       
+       at endReadableNT (_stream_readable.js:921:12)
+   
+   19) The form for creating new events should display errors to the user when the hour is not an integer
+   
+       Expected status code 200, but got500
+       
+       + expected - actual
+       
+       -false
+       +true
+       
+       at Request._callback (test/test.js:478:16)
+       
+       477 |         assert.ok(err === null, 'Error: ' + err);
+       478 |         assert.ok(httpResponse.statusCode === 200, 'Expected status code 200, but got' + httpResponse.statusCode);
+       479 |         var window = jsdom.jsdom(body).defaultView;
+       
+       at Request.self.callback (node_modules/request/request.js:186:22)
+       
+       185 |       self._callbackCalled = true
+       186 |       self._callback.apply(self, arguments)
+       187 |     }
+       
+       at Request.<anonymous> (node_modules/request/request.js:1060:10)
+       
+       1059 |     }
+       1060 |     self.emit('complete', response, response.body)
+       1061 |   })
+       
+       at IncomingMessage.<anonymous> (node_modules/request/request.js:980:12)
+       
+       979 |     responseContent.once('end', function (chunk) {
+       980 |       self.emit('end', chunk)
+       981 |     })
+       
+       at endReadableNT (_stream_readable.js:921:12)
+   
+   18) The form for creating new events should display errors to the user when the day is less than 1
+   
+       Expected status code 200, but got500
+       
+       + expected - actual
+       
+       -false
+       +true
+       
+       at Request._callback (test/test.js:478:16)
+       
+       477 |         assert.ok(err === null, 'Error: ' + err);
+       478 |         assert.ok(httpResponse.statusCode === 200, 'Expected status code 200, but got' + httpResponse.statusCode);
+       479 |         var window = jsdom.jsdom(body).defaultView;
+       
+       at Request.self.callback (node_modules/request/request.js:186:22)
+       
+       185 |       self._callbackCalled = true
+       186 |       self._callback.apply(self, arguments)
+       187 |     }
+       
+       at Request.<anonymous> (node_modules/request/request.js:1060:10)
+       
+       1059 |     }
+       1060 |     self.emit('complete', response, response.body)
+       1061 |   })
+       
+       at IncomingMessage.<anonymous> (node_modules/request/request.js:980:12)
+       
+       979 |     responseContent.once('end', function (chunk) {
+       980 |       self.emit('end', chunk)
+       981 |     })
+       
+       at endReadableNT (_stream_readable.js:921:12)
+   
+   17) The form for creating new events should display errors to the user when the day is more than 31
+   
+       Expected status code 200, but got500
+       
+       + expected - actual
+       
+       -false
+       +true
+       
+       at Request._callback (test/test.js:478:16)
+       
+       477 |         assert.ok(err === null, 'Error: ' + err);
+       478 |         assert.ok(httpResponse.statusCode === 200, 'Expected status code 200, but got' + httpResponse.statusCode);
+       479 |         var window = jsdom.jsdom(body).defaultView;
+       
+       at Request.self.callback (node_modules/request/request.js:186:22)
+       
+       185 |       self._callbackCalled = true
+       186 |       self._callback.apply(self, arguments)
+       187 |     }
+       
+       at Request.<anonymous> (node_modules/request/request.js:1060:10)
+       
+       1059 |     }
+       1060 |     self.emit('complete', response, response.body)
+       1061 |   })
+       
+       at IncomingMessage.<anonymous> (node_modules/request/request.js:980:12)
+       
+       979 |     responseContent.once('end', function (chunk) {
+       980 |       self.emit('end', chunk)
+       981 |     })
+       
+       at endReadableNT (_stream_readable.js:921:12)
+   
+   16) The form for creating new events should display errors to the user when the day is not an integer
+   
+       Expected status code 200, but got500
+       
+       + expected - actual
+       
+       -false
+       +true
+       
+       at Request._callback (test/test.js:478:16)
+       
+       477 |         assert.ok(err === null, 'Error: ' + err);
+       478 |         assert.ok(httpResponse.statusCode === 200, 'Expected status code 200, but got' + httpResponse.statusCode);
+       479 |         var window = jsdom.jsdom(body).defaultView;
+       
+       at Request.self.callback (node_modules/request/request.js:186:22)
+       
+       185 |       self._callbackCalled = true
+       186 |       self._callback.apply(self, arguments)
+       187 |     }
+       
+       at Request.<anonymous> (node_modules/request/request.js:1060:10)
+       
+       1059 |     }
+       1060 |     self.emit('complete', response, response.body)
+       1061 |   })
+       
+       at IncomingMessage.<anonymous> (node_modules/request/request.js:980:12)
+       
+       979 |     responseContent.once('end', function (chunk) {
+       980 |       self.emit('end', chunk)
+       981 |     })
+       
+       at endReadableNT (_stream_readable.js:921:12)
+   
+   15) The form for creating new events should display errors to the user when the month is less than 0
+   
+       Expected status code 200, but got500
+       
+       + expected - actual
+       
+       -false
+       +true
+       
+       at Request._callback (test/test.js:478:16)
+       
+       477 |         assert.ok(err === null, 'Error: ' + err);
+       478 |         assert.ok(httpResponse.statusCode === 200, 'Expected status code 200, but got' + httpResponse.statusCode);
+       479 |         var window = jsdom.jsdom(body).defaultView;
+       
+       at Request.self.callback (node_modules/request/request.js:186:22)
+       
+       185 |       self._callbackCalled = true
+       186 |       self._callback.apply(self, arguments)
+       187 |     }
+       
+       at Request.<anonymous> (node_modules/request/request.js:1060:10)
+       
+       1059 |     }
+       1060 |     self.emit('complete', response, response.body)
+       1061 |   })
+       
+       at IncomingMessage.<anonymous> (node_modules/request/request.js:980:12)
+       
+       979 |     responseContent.once('end', function (chunk) {
+       980 |       self.emit('end', chunk)
+       981 |     })
+       
+       at endReadableNT (_stream_readable.js:921:12)
+   
+   14) The form for creating new events should display errors to the user when the month is more than 11
+   
+       Expected status code 200, but got500
+       
+       + expected - actual
+       
+       -false
+       +true
+       
+       at Request._callback (test/test.js:478:16)
+       
+       477 |         assert.ok(err === null, 'Error: ' + err);
+       478 |         assert.ok(httpResponse.statusCode === 200, 'Expected status code 200, but got' + httpResponse.statusCode);
+       479 |         var window = jsdom.jsdom(body).defaultView;
+       
+       at Request.self.callback (node_modules/request/request.js:186:22)
+       
+       185 |       self._callbackCalled = true
+       186 |       self._callback.apply(self, arguments)
+       187 |     }
+       
+       at Request.<anonymous> (node_modules/request/request.js:1060:10)
+       
+       1059 |     }
+       1060 |     self.emit('complete', response, response.body)
+       1061 |   })
+       
+       at IncomingMessage.<anonymous> (node_modules/request/request.js:980:12)
+       
+       979 |     responseContent.once('end', function (chunk) {
+       980 |       self.emit('end', chunk)
+       981 |     })
+       
+       at endReadableNT (_stream_readable.js:921:12)
+   
+   13) The form for creating new events should display errors to the user when the month is not an integer
+   
+       Expected status code 200, but got500
+       
+       + expected - actual
+       
+       -false
+       +true
+       
+       at Request._callback (test/test.js:478:16)
+       
+       477 |         assert.ok(err === null, 'Error: ' + err);
+       478 |         assert.ok(httpResponse.statusCode === 200, 'Expected status code 200, but got' + httpResponse.statusCode);
+       479 |         var window = jsdom.jsdom(body).defaultView;
+       
+       at Request.self.callback (node_modules/request/request.js:186:22)
+       
+       185 |       self._callbackCalled = true
+       186 |       self._callback.apply(self, arguments)
+       187 |     }
+       
+       at Request.<anonymous> (node_modules/request/request.js:1060:10)
+       
+       1059 |     }
+       1060 |     self.emit('complete', response, response.body)
+       1061 |   })
+       
+       at IncomingMessage.<anonymous> (node_modules/request/request.js:980:12)
+       
+       979 |     responseContent.once('end', function (chunk) {
+       980 |       self.emit('end', chunk)
+       981 |     })
+       
+       at endReadableNT (_stream_readable.js:921:12)
+   
+   12) The form for creating new events should display errors to the user when the year is less than 2015
+   
+       Expected status code 200, but got500
+       
+       + expected - actual
+       
+       -false
+       +true
+       
+       at Request._callback (test/test.js:478:16)
+       
+       477 |         assert.ok(err === null, 'Error: ' + err);
+       478 |         assert.ok(httpResponse.statusCode === 200, 'Expected status code 200, but got' + httpResponse.statusCode);
+       479 |         var window = jsdom.jsdom(body).defaultView;
+       
+       at Request.self.callback (node_modules/request/request.js:186:22)
+       
+       185 |       self._callbackCalled = true
+       186 |       self._callback.apply(self, arguments)
+       187 |     }
+       
+       at Request.<anonymous> (node_modules/request/request.js:1060:10)
+       
+       1059 |     }
+       1060 |     self.emit('complete', response, response.body)
+       1061 |   })
+       
+       at IncomingMessage.<anonymous> (node_modules/request/request.js:980:12)
+       
+       979 |     responseContent.once('end', function (chunk) {
+       980 |       self.emit('end', chunk)
+       981 |     })
+       
+       at endReadableNT (_stream_readable.js:921:12)
+   
+   11) The form for creating new events should display errors to the user when the year is more than 2016
+   
+       Expected status code 200, but got500
+       
+       + expected - actual
+       
+       -false
+       +true
+       
+       at Request._callback (test/test.js:478:16)
+       
+       477 |         assert.ok(err === null, 'Error: ' + err);
+       478 |         assert.ok(httpResponse.statusCode === 200, 'Expected status code 200, but got' + httpResponse.statusCode);
+       479 |         var window = jsdom.jsdom(body).defaultView;
+       
+       at Request.self.callback (node_modules/request/request.js:186:22)
+       
+       185 |       self._callbackCalled = true
+       186 |       self._callback.apply(self, arguments)
+       187 |     }
+       
+       at Request.<anonymous> (node_modules/request/request.js:1060:10)
+       
+       1059 |     }
+       1060 |     self.emit('complete', response, response.body)
+       1061 |   })
+       
+       at IncomingMessage.<anonymous> (node_modules/request/request.js:980:12)
+       
+       979 |     responseContent.once('end', function (chunk) {
+       980 |       self.emit('end', chunk)
+       981 |     })
+       
+       at endReadableNT (_stream_readable.js:921:12)
+   
+   10) The form for creating new events should display errors to the user when the year is not an integer
+   
+       Expected status code 200, but got500
+       
+       + expected - actual
+       
+       -false
+       +true
+       
+       at Request._callback (test/test.js:478:16)
+       
+       477 |         assert.ok(err === null, 'Error: ' + err);
+       478 |         assert.ok(httpResponse.statusCode === 200, 'Expected status code 200, but got' + httpResponse.statusCode);
+       479 |         var window = jsdom.jsdom(body).defaultView;
+       
+       at Request.self.callback (node_modules/request/request.js:186:22)
+       
+       185 |       self._callbackCalled = true
+       186 |       self._callback.apply(self, arguments)
+       187 |     }
+       
+       at Request.<anonymous> (node_modules/request/request.js:1060:10)
+       
+       1059 |     }
+       1060 |     self.emit('complete', response, response.body)
+       1061 |   })
+       
+       at IncomingMessage.<anonymous> (node_modules/request/request.js:980:12)
+       
+       979 |     responseContent.once('end', function (chunk) {
+       980 |       self.emit('end', chunk)
+       981 |     })
+       
+       at endReadableNT (_stream_readable.js:921:12)
+   
+   9) The new event creation page should have the appropriate options for select elements
+   
+       Should have select input for year
+       
+       at Context.<anonymous> (test/test.js:323:18)
+       
+       322 |           var select = this.browser.query('select[name="' + fieldName + '"]');
+       323 |           assert.ok(select, 'Should have select input for ' + fieldName);
+       324 |           assert.deepEqual(
+       
+       at node_modules/lodash/index.js:2874:23
+       
+       2873 |         case 3: return function(value, index, collection) {
+       2874 |           return func.call(thisArg, value, index, collection);
+       2875 |         };
+       
+       at node_modules/lodash/index.js:3073:15
+       
+       3072 |           var key = props[index];
+       3073 |           if (iteratee(iterable[key], key, iterable) === false) {
+       3074 |             break;
+       
+       at baseForOwn (node_modules/lodash/index.js:2046:14)
+       
+       2045 |     function baseForOwn(object, iteratee) {
+       2046 |       return baseFor(object, iteratee, keys);
+       2047 |     }
+       
+       at Function.forOwn (node_modules/lodash/index.js:3378:16)
+       
+       3377 |         }
+       3378 |         return objectFunc(object, iteratee);
+       3379 |       };
+       
+       at Context.<anonymous> (test/test.js:321:9)
+       
+       321 |       _.forOwn(requiredFieldValues, function (expectedOptionValues, fieldName) {
+       322 |           var select = this.browser.query('select[name="' + fieldName + '"]');
+       
+   
+   8) The new event creation page should use select inputs for year, month, day, hour and minute form elements.
+   
+       Should have select input for year at /events/new
+       
+       at Context.<anonymous> (test/test.js:309:14)
+       
+       308 |     for (var i = 0; i < requiredFields.length; i++) {
+       309 |       assert.ok(this.browser.query('select[name="' + requiredFields[i] + '"]'), 'Should have select input for ' + requiredFields[i] + ' at ' + this.browser.location.pathname);
+       310 |     }
+       
+   
+   7) The new event creation page should have appropriate form fields and labels
+   
+       Should have form name for year at /events/new
+       
+       at Context.<anonymous> (test/test.js:302:14)
+       
+       301 |       // Test for form fields
+       302 |       assert.ok(this.browser.query('[name="' + requiredFields[i] + '"]'), 'Should have form name for ' + requiredFields[i] + ' at ' + this.browser.location.pathname);
+       303 |     }
+       
+   
+   6) The event detail pages should reject RSVPs from non-Yale addresses
+   
+       No INPUT matching 'email'
+       
+       at Browser.fill (node_modules/zombie/lib/index.js:838:7)
+           at /source/index.js:722:4
+           
+           721 |     const field = this.field(selector);
+           722 |     assert(field && (field.tagName === 'TEXTAREA' || (field.tagName === 'INPUT')), `No INPUT matching '${selector}'`);
+           723 |     assert(!field.disabled, 'This INPUT field is disabled');
+           
+       at test/test.js:263:10
+       
+       262 |       browser
+       263 |         .fill('email', email)
+       264 |         .pressButton('Submit', function(){
+       
+       at EventLoop.done (node_modules/zombie/lib/eventloop.js:589:11)
+           at /source/eventloop.js:445:8
+           
+           444 |       try {
+           445 |         callback(error);
+           446 |       } catch (error) {
+           
+       at Immediate._onImmediate (node_modules/zombie/lib/eventloop.js:688:71)
+           at /source/eventloop.js:557:17
+           
+           556 |           else
+           557 |             this.emit('idle');
+           558 |         }
+           
+   
+   5) The event detail pages should allow Yale users to RSVP
+   
+       No INPUT matching 'email'
+       
+       at Browser.fill (node_modules/zombie/lib/index.js:838:7)
+           at /source/index.js:722:4
+           
+           721 |     const field = this.field(selector);
+           722 |     assert(field && (field.tagName === 'TEXTAREA' || (field.tagName === 'INPUT')), `No INPUT matching '${selector}'`);
+           723 |     assert(!field.disabled, 'This INPUT field is disabled');
+           
+       at test/test.js:249:10
+       
+       248 |       browser
+       249 |         .fill('email', email)
+       250 |         .pressButton('Submit', function(){
+       
+       at EventLoop.done (node_modules/zombie/lib/eventloop.js:589:11)
+           at /source/eventloop.js:445:8
+           
+           444 |       try {
+           445 |         callback(error);
+           446 |       } catch (error) {
+           
+       at Immediate._onImmediate (node_modules/zombie/lib/eventloop.js:688:71)
+           at /source/eventloop.js:557:17
+           
+           556 |           else
+           557 |             this.emit('idle');
+           558 |         }
+           
+   
+   4) The event detail pages should exist for each event and should have title, image, etc
+   
+       No title for event 2
+       
+       at test/test.js:232:16
+       
+       231 |         var b = results[i];
+       232 |         assert.ok(b.query('h1#title'), 'No title for event '  + i);
+       233 |         assert.ok(b.query('span#date'), 'No date for event '  + i);
+       
+       at node_modules/async/lib/async.js:52:16
+       
+       51 |             if (fn === null) return;
+       52 |             fn.apply(this, arguments);
+       53 |             fn = null;
+       
+       at node_modules/async/lib/async.js:361:13
+       
+       360 |         }, function (err) {
+       361 |             callback(err, results);
+       362 |         });
+       
+       at node_modules/async/lib/async.js:52:16
+       
+       51 |             if (fn === null) return;
+       52 |             fn.apply(this, arguments);
+       53 |             fn = null;
+       
+       at done (node_modules/async/lib/async.js:246:17)
+       
+       245 |             else if (key === null && completed <= 0) {
+       246 |                 callback(null);
+       247 |             }
+       
+       at node_modules/async/lib/async.js:44:16
+       
+       43 |             if (fn === null) throw new Error("Callback was already called.");
+       44 |             fn.apply(this, arguments);
+       45 |             fn = null;
+       
+       at node_modules/async/lib/async.js:358:17
+       
+       357 |                 results[index] = v;
+       358 |                 callback(err);
+       359 |             });
+       
+       at test/test.js:225:9
+       
+       224 |       browser.visit(url, function(){
+       225 |         cb(null, browser);
+       226 |       });
+       
+       at EventLoop.done (node_modules/zombie/lib/eventloop.js:589:11)
+           at /source/eventloop.js:445:8
+           
+           444 |       try {
+           445 |         callback(error);
+           446 |       } catch (error) {
+           
+       at Immediate._onImmediate (node_modules/zombie/lib/eventloop.js:688:71)
+           at /source/eventloop.js:557:17
+           
+           556 |           else
+           557 |             this.emit('idle');
+           558 |         }
+           
+   
+   3) The home page should not show events that are over
+   
+       Expected to not see events in the past /
+       
+       + expected - actual
+       
+       -false
+       +true
+       
+       at Context.<anonymous> (test/test.js:138:12)
+       
+       137 |     // Event #4 is in the default data and has a date in the past
+       138 |     assert.ok(!this.browser.query('li.event[id$="event-4"]'), 'Expected to not see events in the past ' + this.browser.location.pathname);
+       139 |   });
+       
+   
+   2) The site, on all pages should have a link to / in the footer
+   
+       Expected link to / on page at /events/new
+       
+       at test/test.js:71:16
+       
+       70 |       return function(browser){
+       71 |         assert.ok(browser.query(selector), message + ' on page at ' + browser.location.pathname);
+       72 |       }
+       
+       at test/test.js:59:33
+       
+       58 |           // expect(browser.query('footer a[href="/about"]')).to.be.ok
+       59 |           return callback(null, testFunc(browser));
+       60 |         });
+       
+       at EventLoop.done (node_modules/zombie/lib/eventloop.js:589:11)
+           at /source/eventloop.js:445:8
+           
+           444 |       try {
+           445 |         callback(error);
+           446 |       } catch (error) {
+           
+       at Immediate._onImmediate (node_modules/zombie/lib/eventloop.js:688:71)
+           at /source/eventloop.js:557:17
+           
+           556 |           else
+           557 |             this.emit('idle');
+           558 |         }
+           
+   
+   1) The site, on all pages should have a link to /about in the footer
+   
+       Expected link to /about on page at /events/new
+       
+       at test/test.js:71:16
+       
+       70 |       return function(browser){
+       71 |         assert.ok(browser.query(selector), message + ' on page at ' + browser.location.pathname);
+       72 |       }
+       
+       at test/test.js:59:33
+       
+       58 |           // expect(browser.query('footer a[href="/about"]')).to.be.ok
+       59 |           return callback(null, testFunc(browser));
+       60 |         });
+       
+       at EventLoop.done (node_modules/zombie/lib/eventloop.js:589:11)
+           at /source/eventloop.js:445:8
+           
+           444 |       try {
+           445 |         callback(error);
+           446 |       } catch (error) {
+           
+       at Immediate._onImmediate (node_modules/zombie/lib/eventloop.js:688:71)
+           at /source/eventloop.js:557:17
+           
+           556 |           else
+           557 |             this.emit('idle');
+           558 |         }
+           
