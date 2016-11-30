@@ -77,7 +77,7 @@ function saveEvent(request, response){
 var year = checkIntRange(request, 'year', 2016, 2017, contextData);
 var month = checkIntRange(request, 'month', 0, 11, contextData);
 var day = checkIntRange(request, 'day', 1, 31, contextData);
-var hour = checkIntRange(requst, 'hour', 0, 23, contextData);
+var hour = checkIntRange(request, 'hour', 0, 23, contextData);
 
   if (contextData.errors.length === 0) {
     var newEvent = {
