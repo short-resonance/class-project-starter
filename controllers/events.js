@@ -74,10 +74,18 @@ function saveEvent(request, response){
     contextData.errors.push('Your title should be between 5 and 100 letters.');
   }
 
-var year = checkIntRange(request, 'year', 2016, 2017, contextData);
+var year = checkIntRange(request, 'year', 2015, 2016, contextData);
 var month = checkIntRange(request, 'month', 0, 11, contextData);
 var day = checkIntRange(request, 'day', 1, 31, contextData);
 var hour = checkIntRange(request, 'hour', 0, 23, contextData);
+
+  // Check to make sure image is the correct format, etc.
+  //   10) should display errors to the user when the image is not a gif or png
+  //   11) should display errors to the user when the image is not a URL
+  
+  // Check to make sure the location is correct
+  //   12) should display errors to the user when the location is too long
+  //   13) should display errors to the user when the location is empty
 
   if (contextData.errors.length === 0) {
     var newEvent = {
