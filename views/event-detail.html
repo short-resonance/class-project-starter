@@ -3,7 +3,9 @@
 {% block mainContent %}
 
 <h1> {{event.title}}</h1>
-<p1> {{event.date}}</p1>
-<p2> {{event.image}}</p2>
+<p1> <span id="date"></span></span>{{event.date}}</p1><br>
+<p1> <span id="location">{{event.location}}</span></p1>
+<p1> <span id="image"><img src= {{event.image}}></span></p1>
+<p1> <span id="attendees">Event Attendees </span></p1>
 
 {% endblock %}
