@@ -2,21 +2,14 @@
 
 {% block mainContent %}
 
-  
-    <p> 
-    Welcome to Save the Date. Live your life with no mo' FOMO. 
+<p> 
+    Welcome to {{ title }}. {{tagline}} 
     </p>
-    Check out the <a href="/about">About us</a> page as well as the <a href="/events/0">Events</a> page.
-  </p>
+
   <p>Our upcoming events include:</p>
   <div style="border: 1px solid black">
     {% include "fragments/events-list.html" %}
-      <ul>
-      <li class="event" id="event-1"><a href="/events/1">Voices</a></li>
-      <li class="event" id="event-2"><a href="/events/2">StorySlam</a></li>
-      <li class="event" id="event-3"><a href="/events/3">VoiceSlam</a></li>
-    </ul>
-    </div>
+</div>
   
   <p>
     Check out the <a href="/about">About Us</a> page 
@@ -26,8 +19,4 @@
    <a id="new" href="/events/new">Create a new event</a>
 </p>  
 
-{% endblock %}
-  
-{% block footer %}
- 
 {% endblock %}

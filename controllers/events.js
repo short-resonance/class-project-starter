@@ -49,7 +49,20 @@ function newEvent(request, response){
   response.render('create-event.html', contextData);
 }
 
-/**
+function checkIntRange(request, fieldName, minVal, maxVal, contextData){
+  
+  var value = null; 
+  if (validator.isInt(request.body[fieldName]) === false) {
+    contextData.errors.push('Your ' + fieldName + ' should be an integer.');
+  }else{
+    value = parseInt(request.body[fieldName], 10);
+    if (value > maxVal || value < minVal) {
+      contextData.errors.push('Your ' + fieldName + ' should be in the range ' + minVal + ' to ' + maxVal);
+    }
+  }
+  return value;
+}
+  /**
  * Controller to which new events are submitted.
  * Validates the form and adds the new event to
  * our global list of events.
@@ -61,6 +74,18 @@ function saveEvent(request, response){
     contextData.errors.push('Your title should be between 5 and 100 letters.');
   }
 
+var year = checkIntRange(request, 'year', 2015, 2016, contextData);
+var month = checkIntRange(request, 'month', 0, 11, contextData);
+var day = checkIntRange(request, 'day', 1, 31, contextData);
+var hour = checkIntRange(request, 'hour', 0, 23, contextData);
+
+  // Check to make sure image is the correct format, etc.
+  //   10) should display errors to the user when the image is not a gif or png
+  //   11) should display errors to the user when the image is not a URL
+  
+  // Check to make sure the location is correct
+  //   12) should display errors to the user when the location is too long
+  //   13) should display errors to the user when the location is empty
 
   if (contextData.errors.length === 0) {
     var newEvent = {
@@ -103,11 +128,13 @@ function rsvp (request, response){
 }
 function api (request, response){
   var output = {events:[]};
-  var search = request.quesry.search;
+  var search = request.query.search;
   if(search){
     for(var i = 0; i < events.all.length; i++){
-    output.events.push(events.all[i]);
+      if(events.all[i].title.indexOf(search) !==-1){
+       output.events.push(events.all[i]);
     }
+}
   }else{
     output.events = events.all;   
   }

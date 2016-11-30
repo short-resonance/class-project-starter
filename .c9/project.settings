@@ -36,6 +36,10 @@
     "javascript": {
         "@formatOnSave": "false",
         "@formatter": "esformatter -i \"$file\"",
+<<<<<<< HEAD
+=======
+        "@jsbeautify": "false",
+>>>>>>> 7210a369579fbe91b86bc9105b91b59026396751
         "@use_jsbeautify": "true"
     },
     "language": {
