@@ -70,22 +70,28 @@ function checkIntRange(request, fieldName, minVal, maxVal, contextData){
 function saveEvent(request, response){
   var contextData = {errors: []};
 
+  if (request.body.image.includes('.gif') == false){
+    if (request.body.image.includes('.png') == false){
+        contextData.errors.push('Your image must be a .png or .gif.');
+    }
+  }
+  
+  if (validator.isURL(request.body.image) == false){
+    contextData.errors.push('Your image should be a url.');
+  }
+
   if (validator.isLength(request.body.title, 5, 50) === false) {
     contextData.errors.push('Your title should be between 5 and 100 letters.');
   }
 
-var year = checkIntRange(request, 'year', 2015, 2016, contextData);
-var month = checkIntRange(request, 'month', 0, 11, contextData);
-var day = checkIntRange(request, 'day', 1, 31, contextData);
-var hour = checkIntRange(request, 'hour', 0, 23, contextData);
+  if (validator.isLength(request.body.location, 5, 50) === false) {
+    contextData.errors.push('Your location should be between 5 and 100 letters.');
+  }
 
-  // Check to make sure image is the correct format, etc.
-  //   10) should display errors to the user when the image is not a gif or png
-  //   11) should display errors to the user when the image is not a URL
-  
-  // Check to make sure the location is correct
-  //   12) should display errors to the user when the location is too long
-  //   13) should display errors to the user when the location is empty
+  var year = checkIntRange(request, 'year', 2016, 2017, contextData);
+  var month = checkIntRange(request, 'month', 0, 11, contextData);
+  var day = checkIntRange(request, 'day', 1, 31, contextData);
+  var hour = checkIntRange(request, 'hour', 0, 23, contextData);
 
   if (contextData.errors.length === 0) {
     var newEvent = {
