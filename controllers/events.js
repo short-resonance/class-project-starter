@@ -96,7 +96,7 @@ var hour = checkIntRange(request, 'hour', 0, 23, contextData);
       attending: []
     };
     events.all.push(newEvent);
-    response.redirect('/events');
+    response.redirect('/events' + newEvent.id);
   }else{
     response.render('create-event.html', contextData);
   }
