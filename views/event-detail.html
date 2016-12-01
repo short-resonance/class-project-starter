@@ -4,8 +4,16 @@
 
 <h1 id="title"> {{event.title}}</h1>
 <p1> <span id="date"></span></span>{{event.date}}</p1><br>
-<p1> <span id="location">{{event.location}}</span></p1>
-<p1> <span id="image"><img src= {{event.image}}></span></p1>
-<p1> <span id="attendees">Event Attendees </span></p1>
+<p1> <span id="location">{{event.location}}</span></p1><br>
+<p1> <span id="image"><img src= {{event.image}}></span></p1><br>
+<p1> <span id="attendees">Event Attendees </span></p1><br>
+
+<form id="RSVP" method="POST">
+    <label for="Email">Email:</label>
+        <input type="email" name="email"><br>
+    
+    <input type="submit" name="submit">
+        
+</form>
 
 {% endblock %}
