@@ -87,8 +87,16 @@ function saveEvent(request, response){
   if (validator.isLength(request.body.location, 5, 50) === false) {
     contextData.errors.push('Your location should be between 5 and 100 letters.');
   }
-
-  var year = checkIntRange(request, 'year', 2016, 2017, contextData);
+   
+  var year=parseInt(request.body.year,10);
+  if(year>2016 || year<2015){
+    contextData.errors.push('Your year should be in the range 2015-2016');
+  }
+  
+  if(validator.isInt(request.body.year)===false) {
+    contextData.errors.push('Your year should be an integer.');
+  }
+  
   var month = checkIntRange(request, 'month', 0, 11, contextData);
   var day = checkIntRange(request, 'day', 1, 31, contextData);
   var hour = checkIntRange(request, 'hour', 0, 23, contextData);

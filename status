@@ -37,7 +37,7 @@
    
    The form for creating new events
      ✓ should display errors to the user when the year is not an integer
-     5) should display errors to the user when the year is more than 2016
+     ✓ should display errors to the user when the year is more than 2016
      ✓ should display errors to the user when the year is less than 2015
      ✓ should display errors to the user when the month is not an integer
      ✓ should display errors to the user when the month is more than 11
@@ -54,61 +54,21 @@
      ✓ should display errors to the user when the location is empty
      ✓ should display errors to the user when the title is too long
      ✓ should display errors to the user when the title is empty
-     6) should redirect the user to the event detail page if the form is valid
+     5) should redirect the user to the event detail page if the form is valid
 
-   Executed 43 tests in 7 suites in 3s 536ms
-       37 passes
-       6 failed
+   Executed 43 tests in 7 suites in 4s 66ms
+       38 passes
+       5 failed
    
-   6) The form for creating new events should redirect the user to the event detail page if the form is valid
+   5) The form for creating new events should redirect the user to the event detail page if the form is valid
    
-       Expected error code 302, but got 200
+       Bad redirect location, it should look like events/4, events/5, etc: expected '/eventsundefined' to match /events\/\d+\/?$/
        
-       + expected - actual
+       at Request._callback (test/test.js:503:48)
        
-       -false
-       +true
-       
-       at Request._callback (test/test.js:501:14)
-       
-       500 |       assert.ok(err === null, 'Error: ' + err);
-       501 |       assert.ok(httpResponse.statusCode === 302, 'Expected error code 302, but got ' + httpResponse.statusCode);
        502 |       assert.ok(httpResponse.headers.hasOwnProperty('location'), 'http response header should include location.');
-       
-       at Request.self.callback (node_modules/request/request.js:187:22)
-       
-       186 |       self._callbackCalled = true
-       187 |       self._callback.apply(self, arguments)
-       188 |     }
-       
-       at Request.<anonymous> (node_modules/request/request.js:1048:10)
-       
-       1047 |     }
-       1048 |     self.emit('complete', response, response.body)
-       1049 |   })
-       
-       at IncomingMessage.<anonymous> (node_modules/request/request.js:969:12)
-       
-       968 |     responseContent.on('end', function (chunk) {
-       969 |       self.emit('end', chunk)
-       970 |     })
-       
-       at endReadableNT (_stream_readable.js:921:12)
-   
-   5) The form for creating new events should display errors to the user when the year is more than 2016
-   
-       Expected status code 200, but got302
-       
-       + expected - actual
-       
-       -false
-       +true
-       
-       at Request._callback (test/test.js:478:16)
-       
-       477 |         assert.ok(err === null, 'Error: ' + err);
-       478 |         assert.ok(httpResponse.statusCode === 200, 'Expected status code 200, but got' + httpResponse.statusCode);
-       479 |         var window = jsdom.jsdom(body).defaultView;
+       503 |       expect(httpResponse.headers.location).to.match(/events\/\d+\/?$/, 'Bad redirect location, it should look like events/4, events/5, etc');
+       504 |       done();
        
        at Request.self.callback (node_modules/request/request.js:187:22)
        
