@@ -8,11 +8,11 @@
    
    The home page
      ✓ should be up and running
-     1) should have your team logo
+     ✓ should have your team logo
      ✓ should have a list of events
      ✓ should have a time tag for each event
      ✓ should have a link for each event
-     2) should not show events that are over
+     1) should not show events that are over
      ✓ should have a link to create a new event
    
    The API
@@ -24,16 +24,16 @@
      ✓ should have a picture of each person
    
    The event detail pages
-     3) should exist for each event and should have title, image, etc
-     4) should allow Yale users to RSVP
-     5) should reject RSVPs from non-Yale addresses
+     2) should exist for each event and should have title, image, etc
+     3) should allow Yale users to RSVP
+     4) should reject RSVPs from non-Yale addresses
    
    The new event creation page
      ✓ should exist
      ✓ should have a form that can be posted back
-     6) should have appropriate form fields and labels
-     7) should use select inputs for year, month, day, hour and minute form elements.
-     8) should have the appropriate options for select elements
+     ✓ should have appropriate form fields and labels
+     ✓ should use select inputs for year, month, day, hour and minute form elements.
+     ✓ should have the appropriate options for select elements
    
    The form for creating new events
      ✓ should display errors to the user when the year is not an integer
@@ -48,19 +48,19 @@
      ✓ should display errors to the user when the hour is not an integer
      ✓ should display errors to the user when the hour is more than 23
      ✓ should display errors to the user when the hour is less than 0
-     9) should display errors to the user when the image is not a gif or png
-     10) should display errors to the user when the image is not a URL
-     11) should display errors to the user when the location is too long
-     12) should display errors to the user when the location is empty
+     ✓ should display errors to the user when the image is not a gif or png
+     ✓ should display errors to the user when the image is not a URL
+     ✓ should display errors to the user when the location is too long
+     ✓ should display errors to the user when the location is empty
      ✓ should display errors to the user when the title is too long
      ✓ should display errors to the user when the title is empty
-     13) should redirect the user to the event detail page if the form is valid
+     5) should redirect the user to the event detail page if the form is valid
 
-   Executed 43 tests in 7 suites in 3s 273ms
-       30 passes
-       13 failed
+   Executed 43 tests in 7 suites in 4s 66ms
+       38 passes
+       5 failed
    
-   13) The form for creating new events should redirect the user to the event detail page if the form is valid
+   5) The form for creating new events should redirect the user to the event detail page if the form is valid
    
        Bad redirect location, it should look like events/4, events/5, etc: expected '/eventsundefined' to match /events\/\d+\/?$/
        
@@ -90,224 +90,22 @@
        
        at endReadableNT (_stream_readable.js:921:12)
    
-   12) The form for creating new events should display errors to the user when the location is empty
+   4) The event detail pages should reject RSVPs from non-Yale addresses
    
-       Expected status code 200, but got302
+       No BUTTON 'Submit'
        
-       + expected - actual
-       
-       -false
-       +true
-       
-       at Request._callback (test/test.js:478:16)
-       
-       477 |         assert.ok(err === null, 'Error: ' + err);
-       478 |         assert.ok(httpResponse.statusCode === 200, 'Expected status code 200, but got' + httpResponse.statusCode);
-       479 |         var window = jsdom.jsdom(body).defaultView;
-       
-       at Request.self.callback (node_modules/request/request.js:187:22)
-       
-       186 |       self._callbackCalled = true
-       187 |       self._callback.apply(self, arguments)
-       188 |     }
-       
-       at Request.<anonymous> (node_modules/request/request.js:1048:10)
-       
-       1047 |     }
-       1048 |     self.emit('complete', response, response.body)
-       1049 |   })
-       
-       at IncomingMessage.<anonymous> (node_modules/request/request.js:969:12)
-       
-       968 |     responseContent.on('end', function (chunk) {
-       969 |       self.emit('end', chunk)
-       970 |     })
-       
-       at endReadableNT (_stream_readable.js:921:12)
-   
-   11) The form for creating new events should display errors to the user when the location is too long
-   
-       Expected status code 200, but got302
-       
-       + expected - actual
-       
-       -false
-       +true
-       
-       at Request._callback (test/test.js:478:16)
-       
-       477 |         assert.ok(err === null, 'Error: ' + err);
-       478 |         assert.ok(httpResponse.statusCode === 200, 'Expected status code 200, but got' + httpResponse.statusCode);
-       479 |         var window = jsdom.jsdom(body).defaultView;
-       
-       at Request.self.callback (node_modules/request/request.js:187:22)
-       
-       186 |       self._callbackCalled = true
-       187 |       self._callback.apply(self, arguments)
-       188 |     }
-       
-       at Request.<anonymous> (node_modules/request/request.js:1048:10)
-       
-       1047 |     }
-       1048 |     self.emit('complete', response, response.body)
-       1049 |   })
-       
-       at IncomingMessage.<anonymous> (node_modules/request/request.js:969:12)
-       
-       968 |     responseContent.on('end', function (chunk) {
-       969 |       self.emit('end', chunk)
-       970 |     })
-       
-       at endReadableNT (_stream_readable.js:921:12)
-   
-   10) The form for creating new events should display errors to the user when the image is not a URL
-   
-       Expected status code 200, but got302
-       
-       + expected - actual
-       
-       -false
-       +true
-       
-       at Request._callback (test/test.js:478:16)
-       
-       477 |         assert.ok(err === null, 'Error: ' + err);
-       478 |         assert.ok(httpResponse.statusCode === 200, 'Expected status code 200, but got' + httpResponse.statusCode);
-       479 |         var window = jsdom.jsdom(body).defaultView;
-       
-       at Request.self.callback (node_modules/request/request.js:187:22)
-       
-       186 |       self._callbackCalled = true
-       187 |       self._callback.apply(self, arguments)
-       188 |     }
-       
-       at Request.<anonymous> (node_modules/request/request.js:1048:10)
-       
-       1047 |     }
-       1048 |     self.emit('complete', response, response.body)
-       1049 |   })
-       
-       at IncomingMessage.<anonymous> (node_modules/request/request.js:969:12)
-       
-       968 |     responseContent.on('end', function (chunk) {
-       969 |       self.emit('end', chunk)
-       970 |     })
-       
-       at endReadableNT (_stream_readable.js:921:12)
-   
-   9) The form for creating new events should display errors to the user when the image is not a gif or png
-   
-       Expected status code 200, but got302
-       
-       + expected - actual
-       
-       -false
-       +true
-       
-       at Request._callback (test/test.js:478:16)
-       
-       477 |         assert.ok(err === null, 'Error: ' + err);
-       478 |         assert.ok(httpResponse.statusCode === 200, 'Expected status code 200, but got' + httpResponse.statusCode);
-       479 |         var window = jsdom.jsdom(body).defaultView;
-       
-       at Request.self.callback (node_modules/request/request.js:187:22)
-       
-       186 |       self._callbackCalled = true
-       187 |       self._callback.apply(self, arguments)
-       188 |     }
-       
-       at Request.<anonymous> (node_modules/request/request.js:1048:10)
-       
-       1047 |     }
-       1048 |     self.emit('complete', response, response.body)
-       1049 |   })
-       
-       at IncomingMessage.<anonymous> (node_modules/request/request.js:969:12)
-       
-       968 |     responseContent.on('end', function (chunk) {
-       969 |       self.emit('end', chunk)
-       970 |     })
-       
-       at endReadableNT (_stream_readable.js:921:12)
-   
-   8) The new event creation page should have the appropriate options for select elements
-   
-       Should have select input for year
-       
-       at Context.<anonymous> (test/test.js:323:18)
-       
-       322 |           var select = this.browser.query('select[name="' + fieldName + '"]');
-       323 |           assert.ok(select, 'Should have select input for ' + fieldName);
-       324 |           assert.deepEqual(
-       
-       at node_modules/lodash/index.js:2874:23
-       
-       2873 |         case 3: return function(value, index, collection) {
-       2874 |           return func.call(thisArg, value, index, collection);
-       2875 |         };
-       
-       at node_modules/lodash/index.js:3073:15
-       
-       3072 |           var key = props[index];
-       3073 |           if (iteratee(iterable[key], key, iterable) === false) {
-       3074 |             break;
-       
-       at baseForOwn (node_modules/lodash/index.js:2046:14)
-       
-       2045 |     function baseForOwn(object, iteratee) {
-       2046 |       return baseFor(object, iteratee, keys);
-       2047 |     }
-       
-       at Function.forOwn (node_modules/lodash/index.js:3378:16)
-       
-       3377 |         }
-       3378 |         return objectFunc(object, iteratee);
-       3379 |       };
-       
-       at Context.<anonymous> (test/test.js:321:9)
-       
-       321 |       _.forOwn(requiredFieldValues, function (expectedOptionValues, fieldName) {
-       322 |           var select = this.browser.query('select[name="' + fieldName + '"]');
-       
-   
-   7) The new event creation page should use select inputs for year, month, day, hour and minute form elements.
-   
-       Should have select input for year at /events/new
-       
-       at Context.<anonymous> (test/test.js:309:14)
-       
-       308 |     for (var i = 0; i < requiredFields.length; i++) {
-       309 |       assert.ok(this.browser.query('select[name="' + requiredFields[i] + '"]'), 'Should have select input for ' + requiredFields[i] + ' at ' + this.browser.location.pathname);
-       310 |     }
-       
-   
-   6) The new event creation page should have appropriate form fields and labels
-   
-       Should have form name for day at /events/new
-       
-       at Context.<anonymous> (test/test.js:302:14)
-       
-       301 |       // Test for form fields
-       302 |       assert.ok(this.browser.query('[name="' + requiredFields[i] + '"]'), 'Should have form name for ' + requiredFields[i] + ' at ' + this.browser.location.pathname);
-       303 |     }
-       
-   
-   5) The event detail pages should reject RSVPs from non-Yale addresses
-   
-       No INPUT matching 'email'
-       
-       at Browser.fill (node_modules/zombie/lib/index.js:838:7)
-           at /source/index.js:722:4
+       at Browser.pressButton (node_modules/zombie/lib/index.js:1197:7)
+           at /source/index.js:938:4
            
-           721 |     const field = this.field(selector);
-           722 |     assert(field && (field.tagName === 'TEXTAREA' || (field.tagName === 'INPUT')), `No INPUT matching '${selector}'`);
-           723 |     assert(!field.disabled, 'This INPUT field is disabled');
+           937 |     const button = this.button(selector);
+           938 |     assert(button, `No BUTTON '${selector}'`);
+           939 |     assert(!button.disabled, 'This button is disabled');
            
-       at test/test.js:263:10
+       at test/test.js:264:10
        
-       262 |       browser
        263 |         .fill('email', email)
        264 |         .pressButton('Submit', function(){
+       265 |           assert.ok(browser.query('ul.form-errors'), 'RSVP from joker at Harvard should have been rejected.');
        
        at EventLoop.done (node_modules/zombie/lib/eventloop.js:589:11)
            at /source/eventloop.js:445:8
@@ -324,22 +122,22 @@
            558 |         }
            
    
-   4) The event detail pages should allow Yale users to RSVP
+   3) The event detail pages should allow Yale users to RSVP
    
-       No INPUT matching 'email'
+       No BUTTON 'Submit'
        
-       at Browser.fill (node_modules/zombie/lib/index.js:838:7)
-           at /source/index.js:722:4
+       at Browser.pressButton (node_modules/zombie/lib/index.js:1197:7)
+           at /source/index.js:938:4
            
-           721 |     const field = this.field(selector);
-           722 |     assert(field && (field.tagName === 'TEXTAREA' || (field.tagName === 'INPUT')), `No INPUT matching '${selector}'`);
-           723 |     assert(!field.disabled, 'This INPUT field is disabled');
+           937 |     const button = this.button(selector);
+           938 |     assert(button, `No BUTTON '${selector}'`);
+           939 |     assert(!button.disabled, 'This button is disabled');
            
-       at test/test.js:249:10
+       at test/test.js:250:10
        
-       248 |       browser
        249 |         .fill('email', email)
        250 |         .pressButton('Submit', function(){
+       251 |           assert.ok(browser.html().indexOf(email) > -1, 'Email ' + email + ' not successfully RSVP\'d.');
        
        at EventLoop.done (node_modules/zombie/lib/eventloop.js:589:11)
            at /source/eventloop.js:445:8
@@ -356,7 +154,7 @@
            558 |         }
            
    
-   3) The event detail pages should exist for each event and should have title, image, etc
+   2) The event detail pages should exist for each event and should have title, image, etc
    
        No image for event 2
        
@@ -423,7 +221,7 @@
            558 |         }
            
    
-   2) The home page should not show events that are over
+   1) The home page should not show events that are over
    
        Expected to not see events in the past /
        
@@ -437,15 +235,4 @@
        137 |     // Event #4 is in the default data and has a date in the past
        138 |     assert.ok(!this.browser.query('li.event[id$="event-4"]'), 'Expected to not see events in the past ' + this.browser.location.pathname);
        139 |   });
-       
-   
-   1) The home page should have your team logo
-   
-       Expected logo .png on page at /
-       
-       at Context.<anonymous> (test/test.js:117:12)
-       
-       116 |   it('should have your team logo', function(){
-       117 |     assert.ok(this.browser.query('img#logo[src*=".png"]'), 'Expected logo .png on page at ' + this.browser.location.pathname);
-       118 |   });
        
